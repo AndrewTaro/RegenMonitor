@@ -18,7 +18,7 @@
 		(var healthMax:number = "healthComponent ? healthComponent.max : 0" (event "healthComponent.evMaxChanged"))
 		(var healthDelta:number = "healthComponent ? healthComponent.delta : 0" (event "healthComponent.evDeltaChanged"))
 
-		(var healthRatio:number = "healthMax ? healthValue / healthMax : -1")
+		(var healthRatio:number = "healthMax ? min(healthValue / healthMax, 1) : -1")
 		(var textValue:str = "toString(formatSeparator(healthValue)) + ' / ' + toString(formatSeparator(healthMax))")
 
 		(macro GET_MARKER_ENTITY_COMPONENT 'relation')
