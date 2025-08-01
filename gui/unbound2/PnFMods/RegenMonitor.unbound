@@ -26,8 +26,9 @@
 		(var relationStr:str = "toLower(SC.Battle.PLAYER_RELATION.VALUE_TO_NAME[relationValue])")
 		(var isAlly:bool = "relationComponent && relationComponent.value == SC.Battle.PLAYER_RELATION.ALLY" (event "relationComponent.evChanged"))
 
-		#modded
-		#userPrefs
+		# Mod
+		(macro IS_SPECTATOR_MODE)
+		# UserPrefs
 		(macro TT_GET_USERPREF)
 
 		(var prefs:dict = "isAlly ? RM_PREFS.ALLY : RM_PREFS.ENEMY")
@@ -37,7 +38,7 @@
 		(macro TT_GET_PREF_NUMBER _varName="'greenScale'"	_pref="prefs.GREEN")
 		(macro TT_GET_PREF_NUMBER _varName="'blueScale'"	_pref="prefs.BLUE")
 
-		#dataComponent
+		# DataComponent
 		(macro GET_MARKER_ENTITY_COMPONENT 'dataComponent')
 		(var regenMaxValue:number = "dataComponentComponent ? dataComponentComponent.data.maxValue : 0" (event "dataComponentComponent.evDataChanged"))
 		(var regenRatio:number = "healthMax ? regenMaxValue / healthMax : -1")
@@ -155,18 +156,16 @@
 				)
 			)
 
-			#modded
+			# Mod
 			(block
 				(class $FullsizeAbsolute)
 				(bind scaleX "regenRatio")
-				(bind visible "dataComponentComponent")
+				(bind visible "dataComponentComponent && !isSpectatorTrainingMode")
 				
 				(style
 					(bind backgroundColor "0xFFFFFFFF")
 					(backgroundSize = "fill")
 				)
-				#Edit here to change color
-				#(bind colorTransform "{ redMultiplier:0,greenMultiplier:0,blueMultiplier:0,alphaMultiplier:0.4,redOffset:238,greenOffset:238,blueOffset:238,alphaOffset:0 }")
 				(bind colorTransform "{ redMultiplier: redScale, greenMultiplier: greenScale, blueMultiplier: blueScale, alphaMultiplier: alphaScale}")
 			)
 			#
