@@ -27,7 +27,6 @@
 		(var isAlly:bool = "relationComponent && relationComponent.value == SC.Battle.PLAYER_RELATION.ALLY" (event "relationComponent.evChanged"))
 
 		# Mod
-		(macro IS_SPECTATOR_MODE)
 		# UserPrefs
 		(macro TT_GET_USERPREF)
 
@@ -160,7 +159,7 @@
 			(block
 				(class $FullsizeAbsolute)
 				(bind scaleX "regenRatio")
-				(bind visible "dataComponentComponent && !isSpectatorTrainingMode")
+				(bind visible "dataComponentComponent")
 				
 				(style
 					(bind backgroundColor "0xFFFFFFFF")
