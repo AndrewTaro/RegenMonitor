@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 5,
+  "id": "cmtkswuwj0003v014p60acn0f",
+  "author": "ttaro",
+  "modName": "Regen Monitor",
+  "slug": "regen-monitor",
+  "order": 3,
+  "tree": [
+    {
+      "kind": "group",
+      "key": "cmtktamb200bav0d4smnotsvr",
+      "display": "section",
+      "label": "IDS_TT_TITLE_HEALTH_BAR",
+      "collapse": "expanded",
+      "children": [
+        {
+          "kind": "setting",
+          "control": "color",
+          "key": "regenMonitorBar.color.ally",
+          "label": "IDS_TT_TITLE_HEALTHBAR_COLOR_ALLY",
+          "default": 1726408422,
+          "min": 0,
+          "max": 4294967295
+        },
+        {
+          "kind": "setting",
+          "control": "color",
+          "key": "regenMonitorBar.color.enemy",
+          "label": "IDS_TT_TITLE_HEALTHBAR_COLOR_ENEMY",
+          "hint": {
+            "text": "IDS_TT_HINT_OTHER_TEAM_SPECTATOR"
+          },
+          "default": 1726408422,
+          "min": 0,
+          "max": 4294967295
+        }
+      ]
+    }
+  ]
+}
