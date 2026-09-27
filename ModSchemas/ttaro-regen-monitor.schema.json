@@ -5,6 +5,7 @@
   "modName": "Regen Monitor",
   "slug": "regen-monitor",
   "order": 3,
+  "migrationVersion": 2,
   "tree": [
     {
       "kind": "group",
@@ -16,7 +17,7 @@
         {
           "kind": "setting",
           "control": "color",
-          "key": "regenMonitorBar.color.ally",
+          "key": "regenMonitor.color.ally",
           "label": "IDS_TT_TITLE_HEALTHBAR_COLOR_ALLY",
           "default": 1726408422,
           "min": 0,
@@ -25,7 +26,7 @@
         {
           "kind": "setting",
           "control": "color",
-          "key": "regenMonitorBar.color.enemy",
+          "key": "regenMonitor.color.enemy",
           "label": "IDS_TT_TITLE_HEALTHBAR_COLOR_ENEMY",
           "hint": {
             "text": "IDS_TT_HINT_OTHER_TEAM_SPECTATOR"

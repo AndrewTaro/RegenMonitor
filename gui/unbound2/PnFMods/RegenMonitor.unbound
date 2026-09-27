@@ -29,7 +29,7 @@
 
 		(var regenTeamKey:str = "isAlly ? 'ally' : 'enemy'")
 
-		(macro TT_GET_PREF _varName="'colorPref'"	_key="'ttaro.regenMonitorBar.color.' + regenTeamKey")
+		(macro TT_GET_PREF _varName="'colorPref'"	_key="'ttaro.regenMonitor.color.' + regenTeamKey")
 
 		(var regenAvatarId:str = "_markerEntity && _markerEntity.avatar ? toString(_markerEntity.avatar.id) : ''")
 		(var regenWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, RM_COMPONENT_KEY_PREFIX + regenAvatarId)")

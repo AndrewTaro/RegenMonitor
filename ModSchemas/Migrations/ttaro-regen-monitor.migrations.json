@@ -254,6 +254,22 @@
           }
         }
       ]
+    },
+    {
+      "version": 2,
+      "description": "key moves (auto) — 2 rename(s)",
+      "ops": [
+        {
+          "op": "rename",
+          "from": "regenMonitorBar.color.ally",
+          "to": "regenMonitor.color.ally"
+        },
+        {
+          "op": "rename",
+          "from": "regenMonitorBar.color.enemy",
+          "to": "regenMonitor.color.enemy"
+        }
+      ]
     }
   ]
 }
