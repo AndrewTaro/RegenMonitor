@@ -1,4 +1,7 @@
 
+
+
+
 (def constant RM_COMPONENT_KEY_PREFIX 'modRegenMonitor_')
 
 (def constant RM_FLAGSHIP_COLOR_TRANSFORM {
@@ -27,9 +30,20 @@
 		(var relationStr:str = "toLower(SC.Battle.PLAYER_RELATION.VALUE_TO_NAME[relationValue])")
 		(var isAlly:bool = "relationComponent && relationComponent.value == SC.Battle.PLAYER_RELATION.ALLY" (event "relationComponent.evChanged"))
 
+
+
+
 		(var regenTeamKey:str = "isAlly ? 'ally' : 'enemy'")
 
+
+
+
 		(macro TT_GET_PREF _varName="'colorPref'"	_key="'ttaro.regenMonitor.color.' + regenTeamKey")
+
+
+
+
+
 
 		(var regenAvatarId:str = "_markerEntity && _markerEntity.avatar ? toString(_markerEntity.avatar.id) : ''")
 		(var regenWatcher:gfx = "$datahub.getPrimWatcher(CC.mods_DataComponent, RM_COMPONENT_KEY_PREFIX + regenAvatarId)")
@@ -37,6 +51,7 @@
 		(var regenComponent:gfx = "regenEntity ? regenEntity.mods_DataComponent : null")
 		(var regenMaxValue:number = "regenComponent ? regenComponent.data.maxValue : 0" (event "regenComponent.evDataChanged"))
 		(var regenRatio:number = "healthMax ? regenMaxValue / healthMax : 0")
+
 
 		(var shipComponent:gfx = "_markerEntity.avatar ? _markerEntity.avatar.ship.ref.ship : null" (event "_markerEntity.avatar.evShipRefChanged"))
 		(var shipId:str = "shipComponent ? toString(shipComponent.id) : null")
@@ -46,6 +61,7 @@
 		(var shipWeightData:dict = "swEntity ? swEntity.mods_DataComponent.data : {}" (event "swEntity.mods_DataComponent.evDataChanged"))
 		(var isFlagShip:bool = "'isFlagship' in shipWeightData ? shipWeightData.isFlagship : false")
 		(var flagShipColorKey:str = "isAlly ? 'ally' : 'enemy'")
+
 
 		(macro GET_MARKER_ENTITY_COMPONENT 'diplomacyRelation')
 		(var diplomacyRelationValue:number = "diplomacyRelationComponent ? diplomacyRelationComponent.value : 0" (event "diplomacyRelationComponent.evChanged"))
@@ -70,12 +86,14 @@
 		(var targetBarScale:number = 0) 
 		(bind targetBarScale "healthRatio" watch=false (event "onBarTweenStart"))
 
+
 		(var markerColorTransform:dict = 
 			"	isFlagShip					? RM_FLAGSHIP_COLOR_TRANSFORM[flagShipColorKey] :
 				diplomacyRelationComponent	? TWO_TEAMS_COLOR_TRANSFORMS[relationStrByDiplomacy] :
 				isAlly						? TWO_TEAMS_COLOR_TRANSFORMS['ally'] :
 				isMultyTeamEnabled			? MULTI_TEAMS_COLOR_TRANSFORMS[teamId]
 											: TWO_TEAMS_COLOR_TRANSFORMS[relationStr]")
+
 	)
 
 	(dispatch evBarTweenStart args="{}" (event "onDamageTweenEnd") (bind enabled "isDirty")) 
@@ -149,6 +167,7 @@
 				)
 			)
 
+
 			(block
 				(class $FullsizeAbsolute)
 				(bind scaleX "regenRatio")
@@ -160,6 +179,7 @@
 				)
 				(bind colorTransform "{ redMultiplier: colorPref.r, greenMultiplier: colorPref.g, blueMultiplier: colorPref.b, alphaMultiplier: colorPref.a}")
 			)
+
 			
 			(block
 				(class $FullsizeAbsolute)
